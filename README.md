@@ -1,4 +1,4 @@
-# ChatSystem
+# Websocket-Service/Chat
 
 A real-time WebSocket-based chat and matchmaking server for online multiplayer games. Built with Node.js, it handles in-game chat, player-initiated duels, public matchmaking queues, private lobbies, and in-game transaction notifications.
 
