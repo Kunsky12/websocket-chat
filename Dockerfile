@@ -1,20 +1,20 @@
-# Use official Node.js LTS image
-FROM node:20
+# Use official Node.js LTS slim image (smaller than full node image)
+FROM node:20-slim
 
 # Set working directory
 WORKDIR /usr/src/app
 
-# Copy package.json and package-lock.json first (for caching)
+# Install dependencies first (copy only package files for caching)
 COPY package*.json ./
 
-# Install dependencies
-RUN npm install --production
+# Install only production dependencies
+RUN npm ci --omit=dev
 
-# Copy the rest of your code
+# Copy the rest of the application
 COPY . .
 
-# Expose port
+# Expose the port
 EXPOSE 8080
 
-# Start your server
-CMD ["node", "ChatSystem.js"]
+# Start the server
+CMD ["node", "Websocket-Server.js"]
